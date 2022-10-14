@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="floatType" value="float" dbms="mysql"/>
+    <property name="clobType" value="clob" dbms="mysql"/>
+    <property name="blobType" value="longblob" dbms="mysql"/>
+    <property name="uuidType" value="varchar(36)" dbms="mysql"/>
+    <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072236_added_entity_TblCommonBaseType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072237_added_entity_TblCommonBaseData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072238_added_entity_TblCharityAccounts.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072239_added_entity_TblPersonal.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072240_added_entity_TblNeedyAccounts.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072241_added_entity_TblPlans.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072242_added_entity_TblAssignNeedyToPlans.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072243_added_entity_TblCashAssistancedetail.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072244_added_entity_TblPayment.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20220916072236_added_entity_constraints_TblCommonBaseType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072237_added_entity_constraints_TblCommonBaseData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072240_added_entity_constraints_TblNeedyAccounts.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072241_added_entity_constraints_TblPlans.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072242_added_entity_constraints_TblAssignNeedyToPlans.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072243_added_entity_constraints_TblCashAssistancedetail.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072244_added_entity_constraints_TblPayment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072238_added_entity_constraints_TblCharityAccounts.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220916072239_added_entity_constraints_TblPersonal.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
+</databaseChangeLog>

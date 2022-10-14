@@ -1,0 +1,58 @@
+{
+  "applications": "*",
+  "changelogDate": "20220916072242",
+  "clientRootFolder": "TestCv",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tbl_assign_needy_to_plans",
+  "fields": [
+    {
+      "fieldName": "planId",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fdate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "0"
+    },
+    {
+      "fieldName": "tdate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "0"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "TestCv",
+  "name": "TblAssignNeedyToPlans",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tblCashAssistancedetail",
+      "otherEntityRelationshipName": "assignNeedyPlanId",
+      "ownerSide": true,
+      "relationshipName": "assignNeedyPlanId",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "tblPlans",
+      "otherEntityRelationshipName": "tblAssignNeedyToPlans",
+      "relationshipName": "personId",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "tblPersonal",
+      "otherEntityRelationshipName": "tblAssignNeedyToPlans",
+      "relationshipName": "needyId",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

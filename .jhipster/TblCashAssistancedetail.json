@@ -1,0 +1,54 @@
+{
+  "applications": "*",
+  "changelogDate": "20220916072243",
+  "clientRootFolder": "TestCv",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tbl_cash_assistancedetail",
+  "fields": [
+    {
+      "fieldName": "neededPrice",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "minPrice",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "TestCv",
+  "name": "TblCashAssistancedetail",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tblPayment",
+      "otherEntityRelationshipName": "cashAssistanceDetailId",
+      "ownerSide": true,
+      "relationshipName": "cashAssistanceDetailId",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "tblAssignNeedyToPlans",
+      "otherEntityRelationshipName": "assignNeedyPlanId",
+      "ownerSide": false,
+      "relationshipName": "assignNeedyPlanId",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "tblPlans",
+      "otherEntityRelationshipName": "tblCashAssistancedetail",
+      "relationshipName": "planId",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

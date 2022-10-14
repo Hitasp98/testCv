@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity TblPersonal.
+    -->
+    <changeSet id="20220916072239-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="person_id_id"
+                                 baseTableName="tbl_personal"
+                                 constraintName="fk_tbl_personal__person_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tbl_needy_accounts"/>
+
+        <addForeignKeyConstraint baseColumnNames="person_id_id"
+                                 baseTableName="tbl_personal"
+                                 constraintName="fk_tbl_personal__person_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tbl_assign_needy_to_plans"/>
+
+        <addForeignKeyConstraint baseColumnNames="person_id_id"
+                                 baseTableName="tbl_personal"
+                                 constraintName="fk_tbl_personal__person_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tbl_payment"/>
+
+        <addForeignKeyConstraint baseColumnNames="person_identification_id"
+                                 baseTableName="tbl_personal"
+                                 constraintName="fk_tbl_personal__person_identification_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tbl_payment"/>
+    </changeSet>
+</databaseChangeLog>

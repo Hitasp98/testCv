@@ -1,0 +1,73 @@
+{
+  "applications": "*",
+  "changelogDate": "20220916072238",
+  "clientRootFolder": "TestCv",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tbl_charity_accounts",
+  "fields": [
+    {
+      "fieldName": "bankId",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "branchName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "500"
+    },
+    {
+      "fieldName": "ownerName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "1000"
+    },
+    {
+      "fieldName": "cardNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "20",
+      "fieldValidateRulesMinlength": "20"
+    },
+    {
+      "fieldName": "accountNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "accountName",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "500",
+      "fieldValidateRulesMinlength": "0"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "not an ignored comment",
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "TestCv",
+  "name": "TblCharityAccounts",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tblCommonBaseData",
+      "otherEntityRelationshipName": "bankId",
+      "ownerSide": true,
+      "relationshipName": "commonBaseDataId",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "tblPayment",
+      "otherEntityRelationshipName": "charityAccountId",
+      "ownerSide": true,
+      "relationshipName": "charityAccountId",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

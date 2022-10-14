@@ -1,0 +1,40 @@
+{
+  "applications": "*",
+  "changelogDate": "20220916072236",
+  "clientRootFolder": "TestCv",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tbl_common_base_type",
+  "fields": [
+    {
+      "fieldName": "baseTypeTitle",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "800"
+    },
+    {
+      "fieldName": "baseTypeCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "3",
+      "fieldValidateRulesMinlength": "3"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "TestCv",
+  "name": "TblCommonBaseType",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tblCommonBaseData",
+      "otherEntityRelationshipName": "commonBaseTypeId",
+      "ownerSide": false,
+      "relationshipName": "commonBaseTypeId",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

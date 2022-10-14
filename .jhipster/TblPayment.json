@@ -1,0 +1,101 @@
+{
+  "applications": "*",
+  "changelogDate": "20220916072244",
+  "clientRootFolder": "TestCv",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tbl_payment",
+  "fields": [
+    {
+      "fieldName": "paymentId",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "paymentPrice",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "paymentGatewayId",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "paymentDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "paymentTime",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "paymentStatus",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "500",
+      "fieldValidateRulesMinlength": "0"
+    },
+    {
+      "fieldName": "sourceAccoutNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "targetAccountNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "followCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "10"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "TestCv",
+  "name": "TblPayment",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tblCharityAccounts",
+      "otherEntityRelationshipName": "charityAccountId",
+      "ownerSide": false,
+      "relationshipName": "charityAccountId",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "tblCashAssistancedetail",
+      "otherEntityRelationshipName": "cashAssistanceDetailId",
+      "ownerSide": false,
+      "relationshipName": "cashAssistanceDetailId",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "tblPersonal",
+      "otherEntityRelationshipName": "personId",
+      "relationshipName": "donatorId",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "tblPersonal",
+      "otherEntityRelationshipName": "tblPayment",
+      "relationshipName": "needyId",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

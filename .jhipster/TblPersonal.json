@@ -1,0 +1,107 @@
+{
+  "applications": "*",
+  "changelogDate": "20220916072239",
+  "clientRootFolder": "TestCv",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tbl_personal",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "500",
+      "fieldValidateRulesMinlength": "0"
+    },
+    {
+      "fieldName": "family",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "500",
+      "fieldValidateRulesMinlength": "0"
+    },
+    {
+      "fieldName": "nationalCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "idNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "sex",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "birthDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "birthPlace",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "500",
+      "fieldValidateRulesMinlength": "0"
+    },
+    {
+      "fieldName": "personType",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "personPhoto",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "secretCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "20",
+      "fieldValidateRulesMinlength": "20"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "TestCv",
+  "name": "TblPersonal",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tblPayment",
+      "otherEntityRelationshipName": "donatorId",
+      "relationshipName": "personId",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "tblAssignNeedyToPlans",
+      "otherEntityRelationshipName": "needyId",
+      "relationshipName": "tblAssignNeedyToPlans",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "tblNeedyAccounts",
+      "otherEntityRelationshipName": "needyId",
+      "relationshipName": "tblNeedyAccounts",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "tblPayment",
+      "otherEntityRelationshipName": "needyId",
+      "relationshipName": "tblPayment",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

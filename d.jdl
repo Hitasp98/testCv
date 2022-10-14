@@ -1,0 +1,110 @@
+entity TblCommonBaseType {
+    BaseTypeTitle String required maxlength(800)
+    BaseTypeCode String unique minlength(3)maxlength(3)
+}
+entity TblCommonBaseData {
+    BaseCode String minlength(6) maxlength(6)
+    BaseValue String  maxlength(800)
+}
+// an ignored comment
+/** not an ignored comment */
+entity TblCharityAccounts {
+    BankId Integer required
+    BranchName String required  maxlength(500)
+    OwnerName String required  maxlength(1000)
+    CardNumber String minlength(20) maxlength(20)
+    AccountNumber String required unique minlength(10) maxlength(10)
+    AccountName String minlength(0) maxlength(500)
+}
+entity TblPersonal {
+    Name String required minlength(0) maxlength(500)
+    Family String required minlength(0) maxlength(500)
+    NationalCode String minlength(10) maxlength(10)
+    IdNumber String minlength(10) maxlength(10)
+    Sex Boolean required
+    BirthDate String minlength(10) maxlength(10)
+    BirthPlace String minlength(0) maxlength(500)
+    PersonType Integer required
+    PersonPhoto String
+    SecretCode String minlength(20) maxlength(20)
+}
+entity TblNeedyAccounts {
+    NeedyAccountId Integer required
+    OwnerName String required minlength(10) maxlength(1000)
+    CardNumber String minlength(20) maxlength(20)
+    AccountNumber String required unique minlength(10) maxlength(10)
+    AccountName String minlength(10) maxlength(500)
+    ShebaNumber String required unique minlength(26) maxlength(26)
+}
+entity TblPlans {
+    PlanName String required unique minlength(10) maxlength(1000)
+    Description String
+    PlanNature Boolean required
+    Icon Blob
+    Fdate String  minlength(10) maxlength(10)
+    Tdate String  minlength(10) maxlength(10)
+    NeededLogin Boolean required
+}
+entity TblAssignNeedyToPlans {
+    PlanId Integer required
+    Fdate String required minlength(0) maxlength(10)
+    Tdate String required minlength(0) maxlength(10)
+}
+entity TblCashAssistancedetail {
+    NeededPrice Double  required
+    MinPrice Double required
+    Description String
+}
+entity TblPayment {
+    PaymentId Integer required
+    PaymentPrice Double required
+    PaymentGatewayId String minlength(10) maxlength(10)
+    PaymentDate String required
+    PaymentTime String required
+    PaymentStatus String required minlength(0) maxlength(500)
+    SourceAccoutNumber String minlength(10) maxlength(10)
+    TargetAccountNumber String required minlength(10) maxlength(10)
+    FollowCode String required minlength(10) maxlength(10)
+}
+relationship OneToOne {
+    TblCharityAccounts{CommonBaseDataId} to  TblCommonBaseData{BankId}
+}
+relationship OneToOne {
+    TblCharityAccounts{CharityAccountId} to TblPayment{CharityAccountId}
+}
+relationship OneToOne {
+    TblCommonBaseData{CommonBaseTypeId} to TblCommonBaseType{CommonBaseTypeId}
+}
+relationship OneToOne {
+    TblCommonBaseData{CommonBaseDataId} to TblNeedyAccounts{BankId}
+}
+relationship OneToMany {
+    TblPlans{PlanId} to  TblPlans{ParentPlanId}
+    TblPlans to TblCashAssistancedetail{PlanId}
+    TblPlans to  TblAssignNeedyToPlans{PersonId}
+}
+relationship OneToOne {
+    TblAssignNeedyToPlans{AssignNeedyPlanId} to TblCashAssistancedetail{AssignNeedyPlanId}
+}
+relationship OneToMany {
+    TblPersonal{PersonId} to TblPayment{DonatorId}
+    TblPersonal to TblAssignNeedyToPlans{NeedyId}
+    TblPersonal to TblNeedyAccounts{NeedyId}
+    TblPersonal to  TblPayment{NeedyId}
+}
+relationship OneToOne {
+    TblCashAssistancedetail{CashAssistanceDetailId} to TblPayment{CashAssistanceDetailId}
+}
+// Set pagination options
+//paginate TblPayment, TblCashAssistancedetail with infinite-scroll
+//paginate TblPayment with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except TblPayment, TblCashAssistancedetail
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
+

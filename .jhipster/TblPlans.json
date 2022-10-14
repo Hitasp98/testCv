@@ -1,0 +1,84 @@
+{
+  "applications": "*",
+  "changelogDate": "20220916072241",
+  "clientRootFolder": "TestCv",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tbl_plans",
+  "fields": [
+    {
+      "fieldName": "planName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "1000",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "planNature",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "icon",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "fdate",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "tdate",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "neededLogin",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "TestCv",
+  "name": "TblPlans",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tblPlans",
+      "otherEntityRelationshipName": "parentPlanId",
+      "relationshipName": "planId",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "tblCashAssistancedetail",
+      "otherEntityRelationshipName": "planId",
+      "relationshipName": "tblCashAssistancedetail",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "tblAssignNeedyToPlans",
+      "otherEntityRelationshipName": "personId",
+      "relationshipName": "tblAssignNeedyToPlans",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "tblPlans",
+      "otherEntityRelationshipName": "planId",
+      "relationshipName": "parentPlanId",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

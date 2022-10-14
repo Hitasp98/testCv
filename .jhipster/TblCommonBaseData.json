@@ -1,0 +1,54 @@
+{
+  "applications": "*",
+  "changelogDate": "20220916072237",
+  "clientRootFolder": "TestCv",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tbl_common_base_data",
+  "fields": [
+    {
+      "fieldName": "baseCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "6",
+      "fieldValidateRulesMinlength": "6"
+    },
+    {
+      "fieldName": "baseValue",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "800"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "TestCv",
+  "name": "TblCommonBaseData",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tblCommonBaseType",
+      "otherEntityRelationshipName": "commonBaseTypeId",
+      "ownerSide": true,
+      "relationshipName": "commonBaseTypeId",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "tblNeedyAccounts",
+      "otherEntityRelationshipName": "bankId",
+      "ownerSide": true,
+      "relationshipName": "commonBaseDataId",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "tblCharityAccounts",
+      "otherEntityRelationshipName": "commonBaseDataId",
+      "ownerSide": false,
+      "relationshipName": "bankId",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

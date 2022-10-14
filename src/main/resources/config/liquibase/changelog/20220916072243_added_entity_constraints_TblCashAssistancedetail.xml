@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity TblCashAssistancedetail.
+    -->
+    <changeSet id="20220916072243-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="cash_assistance_detail_id_id"
+                                 baseTableName="tbl_cash_assistancedetail"
+                                 constraintName="fk_tbl_cash_assistancedetail__cash_assistance_detail_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tbl_payment"/>
+
+        <addForeignKeyConstraint baseColumnNames="plan_id_id"
+                                 baseTableName="tbl_cash_assistancedetail"
+                                 constraintName="fk_tbl_cash_assistancedetail__plan_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tbl_plans"/>
+    </changeSet>
+</databaseChangeLog>

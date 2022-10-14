@@ -1,0 +1,46 @@
+
+entity TblCommonBaseType {
+    CommonBaseTypeId Integer unique required
+    BaseTypeTitle String required minlength(0) maxlength(800)
+    BaseTypeCode String unique minlength(3)maxlength(3)
+}
+
+
+entity TblCommonBaseData {
+	CommonBaseDataId Integer required
+    BaseCode String minlength(6) maxlength(6)
+    BaseValue String minlength(0) maxlength(800)
+    CommonBaseTypeId Integer
+}
+//relationship OneToOne{
+//    TblCommonBaseType{CommonBaseTypeId} to  TblCommonBaseData{CommonBaseTypeId}
+//}
+
+// an ignored comment
+/** not an ignored comment */
+//entity TblCharityAccounts {
+//	CharityAccountId Integer required
+//	BankId Integer required
+//	BranchName String required min(0) max(500)
+//	OwnerName String required min(0) max(1000)
+//    CardNumber String min(20) max(20)
+//    AccountNumber String required unique min(10) max(10)
+//    AccountName String min(0) max(500)
+//}
+//relationship OneToOne{
+// 		TblCharityAccounts{CommonBaseDataId} to TblCommonBaseData{BankId}
+//}
+
+
+// Set pagination options
+//paginate  TblCommonBaseType,TblCommonBaseData with infinite-scroll
+//paginate TblCommonBaseType with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceImpl except  TblCommonBaseData,TblCommonBaseType
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

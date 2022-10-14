@@ -1,0 +1,73 @@
+{
+  "applications": "*",
+  "changelogDate": "20220916072240",
+  "clientRootFolder": "TestCv",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tbl_needy_accounts",
+  "fields": [
+    {
+      "fieldName": "needyAccountId",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "ownerName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "1000",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "cardNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "20",
+      "fieldValidateRulesMinlength": "20"
+    },
+    {
+      "fieldName": "accountNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "accountName",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "500",
+      "fieldValidateRulesMinlength": "10"
+    },
+    {
+      "fieldName": "shebaNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "26",
+      "fieldValidateRulesMinlength": "26"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "TestCv",
+  "name": "TblNeedyAccounts",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "tblCommonBaseData",
+      "otherEntityRelationshipName": "commonBaseDataId",
+      "ownerSide": false,
+      "relationshipName": "bankId",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "tblPersonal",
+      "otherEntityRelationshipName": "tblNeedyAccounts",
+      "relationshipName": "needyId",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}
